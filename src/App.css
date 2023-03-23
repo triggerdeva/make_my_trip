@@ -1,0 +1,97 @@
+/**********
+ * Navbar *
+ **********/
+.navbar{
+  height: 60px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  display: flex;
+  justify-content: space-between;
+  padding : 0 10px;
+  align-items: center;
+}
+#logo{
+  width: 150px;
+  height: 100%;
+  object-fit: cover;
+  
+}
+.nav-items{
+  display: flex;
+  gap: 15px;
+}
+.nav-items > *{
+  padding: 5px 10px;
+  background-color: ghostwhite;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  transition: .35 scale ease;
+  cursor: pointer;
+  user-select: none;
+}
+.nav-items > *:hover{
+  scale: 1.07;
+}
+/**********
+  * tripOptions *
+  **********/
+.trip-options{
+  display: flex;
+  flex-wrap: wrap;
+}
+.trip-options-input{
+  padding: 5px 5px
+}
+.input-group{
+  flex : 0 1 30%;
+  margin: 0px auto;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+.input-group:first-child{
+  flex : 1 1 100%;
+  margin: 10px 20px;
+  align-items: center;
+}
+.input-group:first-child > *{
+  width: 150px;
+}
+.input-group:last-child{
+  flex : 1 1 100%;
+  position: relative;
+  isolation: isolate;
+}
+
+#submit-trip-options{
+  display: block;
+  width: max-content;
+  margin-inline: auto;
+  padding: 10px 80px;
+  border-radius: 20px;
+}
+.input-group:last-child::before{
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  bottom : 0px;
+  margin: auto 0px;
+  width: 100%;
+  height: 2px;
+  background-color: gray;
+  z-index: -1;
+}
+
+/**********
+  * Tickets container *
+  **********/
+.tickets-container{
+  padding-left: 20px;
+}
+/**********
+  * Login / Signup page *
+  **********/
+
