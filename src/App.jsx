@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import Root from './components/Root';
-import Tickets from './components/Tickets';
+import Home from './components/home';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,34 +14,68 @@ const router = createBrowserRouter([
     element: <Root/>,
     children : [
       {
-        path: "/",
-        element: <Tickets/>,
-      }
+        path: "/flights",
+        element: <Home tripType={{type : "flights", options: [{text : "one way", value: "oneWay"},{text : "two way", value: "twoWay"}], lable : "flight type"}}/>,
+      },
+      {
+        path: "/trains",
+        element: <Home tripType={{type : "trains", options: [{text : "one way", value: "oneWay"},{text : "two way", value: "twoWay"}], lable : "trip type"}}/>,
+      },
+      {
+        path: "/hotels",
+        element: <Home tripType={{type : "hotels", options: [{text : "single room", value: "single"},{text : "double room", value: "doubleroom"}], lable : "room type"}}/>,
+      },
     ]
   }
 ]);
 function App() {
-  const [data,setData] = useState([]);
-  const [formData, setFormData] = useState({
-    from : "",
-    to : "",
-    departure : "",
-    return : ""
-  })
-  const fetchData = async () => {
-    const query = await fetch("https://content.newtonschool.co/v1/pr/63b85b1209f0a79e89e17e3a/flights");
-    const data = await query.json();
-    console.log(data)
-    setData(data);
+  const [data,setData] = useState(null);
+  const [formData, setFormData] = useState(null)
+  const urls = {
+    flights : "https://content.newtonschool.co/v1/pr/63b85b1209f0a79e89e17e3a/flights",
+    trains : "https://content.newtonschool.co/v1/pr/63b85e152cabb8fdea2673ee/trains",
+    hotels : "https://content.newtonschool.co/v1/pr/63b85bcf735f93791e09caf4/hotels",
+  }
+  const fetchData = async (url) => {
+    const query = await fetch(url);
+    return query.json();
   }
   useEffect(() => {
-    fetchData();
-  },[])
+    console.log("is fetch data running why?", data)
+    if(formData === null) return;
+    fetchData(urls[formData.type])
+      .then(data => {
+        // console.log()
+        setData(data);
+      }).catch(error => console.error("some error"));
+  },[formData])
   return (
-    <context.Provider value={{data : data, setData : setData}}>
+    <context.Provider value={{data, setData,formData, setFormData}}>
       <RouterProvider router={router} />
     </context.Provider>
   )
 }
 
 export default App
+
+/* 
+  trains locaitons 
+  delhi 
+  mumbai 
+  chennai
+  kolkata
+  ============
+  hotel names
+  Bhshan Hotels
+  Roseate House
+  Ginger
+  Lemon Tree
+  Hotel Snow View Manali
+  ============
+  airline loacations
+  delhi 
+  mumbai 
+  chennai
+  kolkata
+  
+*/

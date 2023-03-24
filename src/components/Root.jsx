@@ -1,12 +1,16 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Nav from "./Nav";
+import React, {useEffect} from 'react';
+import { Outlet, useNavigate  } from 'react-router-dom';
 import TripOptions from "./TripOptions";
+import Home from './home';
+import Nav from "./Nav";
 const Root = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate('/flights');
+  },[])
   return (
     <div className='root'>
         <Nav/>
-        <TripOptions/>
         <Outlet/>
     </div>
   )
