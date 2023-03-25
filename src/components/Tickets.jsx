@@ -8,11 +8,16 @@ import HotelTicket from "./tickets/HotelTicket";
 import TrainTicket from "./tickets/TrainTicket";
 
 const Tickets = ({tripType}) => {
-  const ticketCompType = (ticketData) => {
+  const ticketCompType = (ticketData,index) => {
+    let reccomned = false
+    if(index === 0){
+      reccomned = true;
+    }
+    // console.log("look here",reccomned)
     let options =  {
-      "flights" : <FlightTicket tripType={tripType} key={uuidv4()} data={ticketData} />,
-      "trains" : <TrainTicket tripType={tripType} key={uuidv4()} data={ticketData} />,
-      "hotels" : <HotelTicket tripType={tripType} key={uuidv4()} data={ticketData} />,
+      "flights" : <FlightTicket reccomned={reccomned} tripType={tripType} key={uuidv4()} data={ticketData} />,
+      "trains" : <TrainTicket reccomned={reccomned} tripType={tripType} key={uuidv4()} data={ticketData} />,
+      "hotels" : <HotelTicket reccomned={reccomned} tripType={tripType} key={uuidv4()} data={ticketData} />,
     }
     return options[tripType];
   }
@@ -21,7 +26,7 @@ const Tickets = ({tripType}) => {
     <div className="tickets-container">
         <h2>Available Tickets</h2>
         { data &&
-          data.map(ticketData => ticketCompType(ticketData))
+          data.map((ticketData,index) => ticketCompType(ticketData,index))
         }
     </div>
   )

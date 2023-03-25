@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import Root from './components/Root';
 import Home from './components/home';
+import Checkout from "./components/Checkout";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/hotels",
         element: <Home tripType={{type : "hotels", options: [{text : "single room", value: "single"},{text : "double room", value: "doubleroom"}], lable : "room type"}}/>,
+      },
+      {
+        path: "/bookTicket/:ticketPrice",
+        element: <Checkout/>,
       },
     ]
   }
