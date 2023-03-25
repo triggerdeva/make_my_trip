@@ -88,9 +88,43 @@
 /**********
   * Tickets container *
   **********/
-.tickets-container{
-  padding-left: 20px;
+  .tickets-container{
+    padding-left: 20px;
+  }
+
+/**********
+  * Tickets card *
+  **********/
+.ticket_card{
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border-radius: 20px;
+  background-color: 3px solid whitesmoke;
+  gap: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 20px;
 }
+.ticket_card > * {
+  flex: 0 0 max-content;
+}
+.bookTicketBtn{
+  text-decoration: none;
+  flex: 1 1 100%;
+}
+.bookTicketBtn button {
+  display: block;
+  width: max-content;
+  padding: 10px 25px;
+  background-color: transparent;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+
 /**********
   * Login / Signup page *
   **********/

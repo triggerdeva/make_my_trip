@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 export const context = createContext();
 import './App.css';
-
+import { getObjOfType } from './components/utils/utils';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,8 +45,9 @@ function App() {
     if(formData === null) return;
     fetchData(urls[formData.type])
       .then(data => {
-        // console.log()
-        setData(data);
+        const newData = getObjOfType(formData);
+        // setData(data);
+        setData([newData,...data]);
       }).catch(error => console.error("some error"));
   },[formData])
   return (
@@ -77,5 +78,4 @@ export default App
   mumbai 
   chennai
   kolkata
-  
 */

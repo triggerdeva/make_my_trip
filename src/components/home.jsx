@@ -6,7 +6,7 @@ const Home = ({tripType}) => {
   return (
     <div>
         <TripOptions options={tripType.options} optionLabel={tripType.lable} type={tripType.type}/>
-        <Tickets/>
+        <Tickets tripType={tripType.type}/>
     </div>
   )
 }
