@@ -144,4 +144,95 @@
 /**********
   * Login / Signup page *
   **********/
+.checkout_container{
+  display: flex;
+  margin: 20px auto;
+  width: 90%;
+}
+/* .checkout_container p{
+  text-align: right;
+} */
+.price_display_group{
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid slategray;
+}
+.price_display_group p {
+  /* background-color: yellow; */
+  margin: 0px;
+}
+.price_display_group {
+  margin: 5px 0px;
+  padding: 10px 0px;
+}
+.price_display{
+  flex : 1 1 50%;
+  padding: 5px 15px;
+  margin: 20px;
+  border: 2px solid silver;
+  /* background-color: yellow; */
+}
+.payment_method{
+  flex : 1 1 50%;
+  padding: 5px 15px;
+  display: flex;
+  margin: 20px;
+  flex-direction: column;
+  border: 2px solid silver;
+
+  /* background-color: green; */
+}
+
+.payment_method > input[type="text"]{
+  margin: 10px 20px;
+  height: 35px;
+  padding: 5px 10px;
+}
+.payment_method > h2{
+  margin: 10px 20px;
+}
+.payment_method button{
+  width: max-content;
+  padding: 10px 20px;
+  margin: 10px auto;
+}
+.price_display_group{
+  display: flex;
+  justify-content: space-between;
+}
+.inp_grp input[type="text"]{
+  width: 70px;
+  height: 25px;
+}
+.inp_grp > button{
+  height: 25px;
+  width: max-content;
+}
+/**********
+  * planeTicket_preview *
+  **********/
+
+.planeTicket_preview{
+  background-color: antiquewhite;
+}
+.planeTicket_preview_img{
+
+}
+.details{
+  position: relative;
+  border-bottom: dotted 2px rgb(88, 87, 87);
+}
+.details::before, .details::after{
+  position: absolute;
+}
+.details::before{
+
+}
+.details::after{
+
+}
+/**********
+  * Login / Signup page *
+  **********/
 
