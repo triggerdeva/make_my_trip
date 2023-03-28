@@ -212,24 +212,107 @@
 /**********
   * planeTicket_preview *
   **********/
+.planeTicket_preview_wrapper{
+  padding: 50px 0px;
 
+}
 .planeTicket_preview{
-  background-color: antiquewhite;
+  background-color: rgb(255, 255, 255);
+  width: 500px;
+  margin: 0px auto;
 }
 .planeTicket_preview_img{
-
+  height: 200px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  font-size: 35px;
+  font-weight: 600;
+  filter: brightness(90%);
+  background-size: cover;
+  background-image: url("https://lp-cms-production.imgix.net/image_browser/Mumbai_nightlife_S.jpg?auto=format&fit=crop&q=40&sharp=10&vib=20&ixlib=react-8.6.4");
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  position: relative;
+  z-index: 1;
+}
+.airplane_icon{
+  width: 100px;
+  filter: invert();
+}
+.planeTicket_preview_img > *{
+  position: relative;
+  z-index: 10;
+}
+.barcode_image{
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+}
+.planeTicket_preview_img::after{
+  content: "";
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.14);
+  position: absolute;
+  z-index: -10;
+}
+.disclamer p{
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px 0px;
 }
 .details{
   position: relative;
-  border-bottom: dotted 2px rgb(88, 87, 87);
+  border-bottom: dotted 3px rgb(88, 87, 87);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* background-color: green; */
+  /* width: max-content; */
+  /* justify-content: center; */
+  padding: 10px;
+}
+.detail{
+  /* background-color: red; */
+  padding: 0px 20px;
+}
+.planeTicket_preview_text_primary{
+  /* background-color: red; */
+  margin: 0px;
+  margin-top: 10px;
+  font-size: 25px;
+  color: silver;
+  letter-spacing: 1px;
+}
+.planeTicket_preview_wrapper{
+  background-color: rgb(247, 185, 70);
+}
+
+.planeTicket_preview_text_secondary{
+  font-size: 25px;
+  color: black;
+  margin: 0px;
+  margin-top: 10px;
+  letter-spacing: 1px;
 }
 .details::before, .details::after{
   position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  background-color: rgb(247, 185, 70);
+  border-radius: 50%;
+  bottom: 0px;
 }
 .details::before{
-
+  left: 0px;
+  transform: translateY(50%) translateX(-50%);
 }
 .details::after{
+  right: 0px;
+  transform: translateY(50%) translateX(50%);
 
 }
 /**********

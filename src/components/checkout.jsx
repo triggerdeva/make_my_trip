@@ -1,46 +1,152 @@
 import React, {useEffect, useState, useRef} from 'react'
 import {useParams, useLocation} from "react-router-dom";
-
+import airplane from "../assets/airplane.png";
+import city from "../assets/city.png";
+import barcode from "../assets/barcode.jpeg"
+import ReactToPrint from 'react-to-print';
 const HotelTicketPreview = ({data}) => {
-    return <p>HotelTicketPreview</p>
+    const ticket = useRef(null);
+    const downloadTicket = () => {
+
+    }
+    return (
+        <>
+            <div className="planeTicket_preview_wrapper">
+            <div ref={ticket} className='planeTicket_preview'>
+                <div className="planeTicket_preview_img">
+                    <p>{data.from}</p>
+                    <img className="airplane_icon" src={airplane} alt="" />
+                    <p>{data.to}</p>
+                </div>
+                <div className="details">
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Airline</p>
+                        <p className='planeTicket_preview_text_secondary'>{data.airlineName}</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Passenger</p>
+                        <p className='planeTicket_preview_text_secondary'>Michelle doe</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Flight</p>
+                        <p className='planeTicket_preview_text_secondary'>NY341</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>SEAT</p>
+                        <p className='planeTicket_preview_text_secondary'>14A</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Jun-28-2017 AT 08:30AM</p>
+                    </div>
+                    <div className="detail">
+                        <img className='barcode_image' src={barcode} alt="" />
+                    </div>
+                </div>
+                <div className="disclamer">
+                    <p>Disclamer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, nemo est sequi quaerat minus eum sed id cum sint impedit nostrum voluptate.</p>
+                </div>
+            </div>
+            </div>
+            <button onClick={downloadTicket} className='downloadTicket'>Download pass</button>
+        </>
+    )
 }
 const PlaneTicketPreview = ({data}) => {
+    const ticket = useRef(null);
+    const downloadTicket = () => {
+
+    }
     return (
-        <div className='planeTicket_preview'>
-            <div className="planeTicket_preview_img" style={{backgroundImage : "url(https://thumbs.dreamstime.com/b/airport-runway-to-horizon-picturesque-cirrus-clouds-blue-sky-125314025.jpg)"}}>
-                <p>AMS</p>
-                <img src="" alt="" />
-                <p>JFK</p>
+        <>
+            <div className="planeTicket_preview_wrapper">
+            <div ref={ticket} className='planeTicket_preview'>
+                <div className="planeTicket_preview_img">
+                    <p>{data.from}</p>
+                    <img className="airplane_icon" src={airplane} alt="" />
+                    <p>{data.to}</p>
+                </div>
+                <div className="details">
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Airline</p>
+                        <p className='planeTicket_preview_text_secondary'>{data.airlineName}</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Passenger</p>
+                        <p className='planeTicket_preview_text_secondary'>Michelle doe</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Flight</p>
+                        <p className='planeTicket_preview_text_secondary'>NY341</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>SEAT</p>
+                        <p className='planeTicket_preview_text_secondary'>14A</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Jun-28-2017 AT 08:30AM</p>
+                    </div>
+                    <div className="detail">
+                        <img className='barcode_image' src={barcode} alt="" />
+                    </div>
+                </div>
+                <div className="disclamer">
+                    <p>Disclamer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, nemo est sequi quaerat minus eum sed id cum sint impedit nostrum voluptate.</p>
+                </div>
             </div>
-            <div className="details">
-                <div className="detail">
-                    <p className='planeTicket_preview_text_primary'>Passenger</p>
-                    <p className='planeTicket_preview_text_secondary'>Michelle doe</p>
-                </div>
-                <div className="detail">
-                    <p className='planeTicket_preview_text_primary'>Passenger</p>
-                    <p className='planeTicket_preview_text_secondary'>Michelle doe</p>
-                </div>
-                <div className="detail">
-                    <p className='planeTicket_preview_text_primary'>Flight</p>
-                    <p className='planeTicket_preview_text_secondary'>NY341</p>
-                </div>
-                <div className="detail">
-                    <p className='planeTicket_preview_text_primary'>SEAT</p>
-                    <p className='planeTicket_preview_text_secondary'>14A</p>
-                </div>
-                <div className="detail">
-                    <p className='planeTicket_preview_text_primary'>Jun-28-2017 AT 08:30AM</p>
-                </div>
-                <div className="detail">
-                    <img src="" alt="" />
-                </div>
             </div>
-        </div>
+            <ReactToPrint
+                trigger={() => <button>Print this out!</button>}
+                content={() => ticket.current}
+            />
+        </>
     )
 }
 const TrainTicketPreview = ({data}) => {
-    return <p>TrainTicketPreview</p>
+    const ticket = useRef(null);
+    const downloadTicket = () => {
+
+    }
+    return (
+        <>
+            <div className="planeTicket_preview_wrapper">
+            <div ref={ticket} className='planeTicket_preview'>
+                <div className="planeTicket_preview_img">
+                    <p>{data.from}</p>
+                    <img className="airplane_icon" src={airplane} alt="" />
+                    <p>{data.to}</p>
+                </div>
+                <div className="details">
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Airline</p>
+                        <p className='planeTicket_preview_text_secondary'>{data.airlineName}</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Passenger</p>
+                        <p className='planeTicket_preview_text_secondary'>Michelle doe</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Flight</p>
+                        <p className='planeTicket_preview_text_secondary'>NY341</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>SEAT</p>
+                        <p className='planeTicket_preview_text_secondary'>14A</p>
+                    </div>
+                    <div className="detail">
+                        <p className='planeTicket_preview_text_primary'>Jun-28-2017 AT 08:30AM</p>
+                    </div>
+                    <div className="detail">
+                        <img className='barcode_image' src={barcode} alt="" />
+                    </div>
+                </div>
+                <div className="disclamer">
+                    <p>Disclamer: Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, nemo est sequi quaerat minus eum sed id cum sint impedit nostrum voluptate.</p>
+                </div>
+            </div>
+            </div>
+            <button onClick={downloadTicket} className='downloadTicket'>Download pass</button>
+        </>
+    )
 }
 
 const Checkout = () => {
