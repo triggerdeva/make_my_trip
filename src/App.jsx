@@ -9,6 +9,7 @@ import {
 export const context = createContext();
 import './App.css';
 import { getObjOfType } from './components/utils/utils';
+import LoginSignUp from './components/LoginSignUp';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,13 +30,37 @@ const router = createBrowserRouter([
       {
         path: "/bookTicket/:ticketPrice",
         element: <Checkout/>,
-      },
+      }
     ]
-  }
+  },
+  {
+    path: "/loginSignup",
+    element: <LoginSignUp/>,
+  },
 ]);
 function App() {
   const [data,setData] = useState(null);
   const [formData, setFormData] = useState(null)
+  const [users,setUsers] = useState([]);
+  useEffect(() => {
+    console.log(users, "on users being modified")
+    let localUsers = window.localStorage.getItem("users");
+    if(localUsers && users.length > 0){
+      window.localStorage.setItem("users", JSON.stringify(users));
+    }else if(localUsers && users.length === 0){
+      setUsers(JSON.parse(window.localStorage.getItem("users")))
+    }else{
+      window.localStorage.setItem("users", "[]")
+    }
+  },[users])
+  // useEffect(() => {
+  //   console.log(users, "on vevery render")
+  //   let localUsers = window.localStorage.getItem("users");
+  //   if(localUsers && users === null){
+  //     window.localStorage.setItem("users", "[]");
+  //   }
+  // },[])
+
   const urls = {
     flights : "https://content.newtonschool.co/v1/pr/63b85b1209f0a79e89e17e3a/flights",
     trains : "https://content.newtonschool.co/v1/pr/63b85e152cabb8fdea2673ee/trains",
@@ -56,7 +81,7 @@ function App() {
       }).catch(error => console.error("some error"));
   },[formData])
   return (
-    <context.Provider value={{data, setData,formData, setFormData}}>
+    <context.Provider value={{data, setData,formData, setFormData,setUsers,users}}>
       <RouterProvider router={router} />
     </context.Provider>
   )
