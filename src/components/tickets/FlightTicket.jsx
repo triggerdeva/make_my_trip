@@ -9,7 +9,6 @@ const FlightTicket = ({data, tripType, reccomned}) => {
             departureDate
         },
         return:{
-            returnTime,
             returnDate
         },
         airlineName,
@@ -17,6 +16,9 @@ const FlightTicket = ({data, tripType, reccomned}) => {
         price,
         duration
     } = data;
+    let returnTime = data?.returnTime;
+    if(!returnTime)
+        returnTime = "not provided"
     return (
         <div className={reccomned ? "reccomneded ticket_card flight_ticket" : "ticket_card flight_ticket"}>
             <div className="ticket_card_info_group">

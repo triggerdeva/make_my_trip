@@ -29,7 +29,7 @@ return (
             <p className="trin_ticket_price">{price ? price : "missing data"}</p>
             <p className="trin_ticket_duration">{duration ? duration : "missing data"}</p>
         </div>
-        <Link className="bookTicketBtn" to={`/bookTicket/${price}`} state={data} >
+        <Link className="bookTicketBtn" to={`/bookTicket/${price}`} state={{data, type: tripType }} >
             <button >book</button>
         </Link>
     </div>

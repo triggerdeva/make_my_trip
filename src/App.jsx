@@ -42,24 +42,28 @@ function App() {
   const [data,setData] = useState(null);
   const [formData, setFormData] = useState(null)
   const [users,setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null)
   useEffect(() => {
-    console.log(users, "on users being modified")
-    let localUsers = window.localStorage.getItem("users");
-    if(localUsers && users.length > 0){
+    if(users.length !== 0){
       window.localStorage.setItem("users", JSON.stringify(users));
-    }else if(localUsers && users.length === 0){
-      setUsers(JSON.parse(window.localStorage.getItem("users")))
-    }else{
-      window.localStorage.setItem("users", "[]")
     }
   },[users])
-  // useEffect(() => {
-  //   console.log(users, "on vevery render")
-  //   let localUsers = window.localStorage.getItem("users");
-  //   if(localUsers && users === null){
-  //     window.localStorage.setItem("users", "[]");
-  //   }
-  // },[])
+  useEffect(() => {
+    if(currentUser){
+      window.localStorage.setItem("currentUser", JSON.stringify(currentUser))
+    }
+  },[currentUser])
+  useEffect(() => {
+    let localCurrentUser = window.localStorage.getItem("currentUser");
+    if(localCurrentUser){
+      setCurrentUser(JSON.parse(localCurrentUser))
+    }
+
+    let localUsers = window.localStorage.getItem("users");
+    if(localUsers){
+      setUsers(JSON.parse(localUsers))
+    }
+  },[])
 
   const urls = {
     flights : "https://content.newtonschool.co/v1/pr/63b85b1209f0a79e89e17e3a/flights",
@@ -81,7 +85,7 @@ function App() {
       }).catch(error => console.error("some error"));
   },[formData])
   return (
-    <context.Provider value={{data, setData,formData, setFormData,setUsers,users}}>
+    <context.Provider value={{data, setData,formData, setFormData,setUsers,users,currentUser, setCurrentUser}}>
       <RouterProvider router={router} />
     </context.Provider>
   )

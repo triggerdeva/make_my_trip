@@ -1,8 +1,9 @@
-import React, {useContext, useRef} from 'react'
+import React, {useContext, useRef,useState} from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import {context} from "../../App";
 const flightForm = ({options,optionLabel,type}) => {
     const {formData, setFormData} = useContext(context);
+    const [currentFlightType, setCurrentFlightType] = useState("oneWay")
     const fromInputRef = useRef();
     const toInputRef = useRef();
     const departureInputRef = useRef();
@@ -15,21 +16,28 @@ const flightForm = ({options,optionLabel,type}) => {
             from : fromInputRef.current.value,
             to : toInputRef.current.value,
             departure : departureInputRef.current.value,
-            returnDate : returnInputRef.current.value,
+            returnDate : returnInputRef?.current?.value || "not provided",
             type : type,
             flightType : flightTypeRef.current.value
         })
         fromInputRef.current.value = "";
         toInputRef.current.value = "";
         flightTypeRef.current.value = "";
-        returnInputRef.current.value = "";
+        if(currentFlightType !== "oneWay"){
+            returnInputRef.current.value = "";
+        }
     }
+    const handleSelectChange = (e) => {
+        e.preventDefault();
+        setCurrentFlightType(e.target.value)
+        console.log(e.target.value)
+    } 
     return (
         <form className='trip-options' onSubmit={handleSubmit}>
         {/* trip type : dropdown */}
         <div className="input-group">
             <label htmlFor="tripType">{optionLabel}</label>
-            <select ref={flightTypeRef} required className="trip-options-input" id="tripType">
+            <select value={currentFlightType} onChange={handleSelectChange} ref={flightTypeRef} className="trip-options-input" id="tripType">
                 {
                     options.map(option => {
                         return <option key={uuidv4()} value={option.value}>{option.text}</option>
@@ -52,11 +60,14 @@ const flightForm = ({options,optionLabel,type}) => {
             <label htmlFor="departureDate">Departure Date</label>
             <input ref={departureInputRef} required className="trip-options-input" id="departureDate" type="date" />
         </div>
-        {/* Return : data */}
-        <div className="input-group">
-            <label htmlFor="returnDate">return Date</label>
-            <input ref={returnInputRef} required className="trip-options-input" id="returnDate" type="date" />
-        </div>
+        {
+            currentFlightType === "twoWay" && (
+                <div className="input-group">
+                    <label htmlFor="returnDate">return Date</label>
+                    <input ref={returnInputRef} className="trip-options-input" id="returnDate" type="date" />
+                </div>
+            )
+        }
         {/* Search : submit */}
         <div className="input-group">
             <input id='submit-trip-options' type="submit" value="Search" />

@@ -25,7 +25,7 @@ const HotelTicket = ({data, tripType,reccomned}) => {
                 <p className="ticket_card_room_type">{room_type ? room_type : "missing data"}</p>
                 <p className="ticket_card_price_per_night">{price_per_night ? price_per_night : "missing data"}</p>
             </div>
-            <Link className="bookTicketBtn" to={`/bookTicket/${price_per_night}`} state={data}>
+            <Link className="bookTicketBtn" to={`/bookTicket/${price_per_night}`} state={{data, type: tripType }}>
                 <button >book</button>
             </Link>
         </div>

@@ -6,6 +6,7 @@ import barcode from "../assets/barcode.jpeg"
 import ReactToPrint from 'react-to-print';
 const HotelTicketPreview = ({data}) => {
     const ticket = useRef(null);
+    console.log("is hotesl ticket preview running");
     const downloadTicket = () => {
 
     }
@@ -94,8 +95,8 @@ const PlaneTicketPreview = ({data}) => {
                 </div>
             </div>
             </div>
-            <ReactToPrint
-                trigger={() => <button>Print this out!</button>}
+            <ReactToPrint className="print_button"
+                trigger={() => <button style={{backgroundColor: "transparent"}} className="print_button">Print this out!</button>}
                 content={() => ticket.current}
             />
         </>
@@ -106,6 +107,7 @@ const TrainTicketPreview = ({data}) => {
     const downloadTicket = () => {
 
     }
+    console.log("is the train ticket preview running")
     return (
         <>
             <div className="planeTicket_preview_wrapper">
@@ -163,6 +165,7 @@ const Checkout = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("is being paid working? and the current type is", type)
     setPaid(true);
   }
   const couponAction = (event, action) => {

@@ -1,5 +1,6 @@
 import React, {useState,useContext} from 'react';
 import {context} from "../App";  
+import { useNavigate } from 'react-router-dom';
 const LoginSignUp = () => {
   const [showLogin, setShowLogin] = useState(true);
   return (
@@ -14,14 +15,33 @@ const LoginSignUp = () => {
 }
 
 function LoginForm({setShowLogin}) {
-    const {users}= useContext(context);
+    const navigate = useNavigate();
+    const {users,setUsers,currentUser, setCurrentUser}= useContext(context);
     const [error,setError] = useState(null);
     const [formData, setFormData] = useState({
         email: "",
         password: ""
     })
     const handleSubmit = (e) => {
+        setError("");
         e.preventDefault();
+        try{
+            let user = users.find((item) => {
+                if(item.email === formData.email && item.password === formData.password){
+                    return true
+                }
+            })
+            console.log(users)
+            console.log(user)
+            if(user){
+                setCurrentUser(user);
+                navigate("/")
+            }else{
+                setError("incorrect email or password")
+            }
+        }catch(error){
+            console.log(error);
+        }
         return null;
     }
     return (
@@ -51,6 +71,10 @@ function SignUpForm({setShowLogin}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         setUsers(state => ([...state,formData]));
+        setFormData({
+            email: "",
+            password: ""
+        })
         return null;
     }
     return (

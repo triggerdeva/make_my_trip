@@ -13,7 +13,7 @@ const Tickets = ({tripType}) => {
     if(index === 0){
       reccomned = true;
     }
-    // console.log("look here",reccomned)
+    console.log("look here",tripType)
     let options =  {
       "flights" : <FlightTicket reccomned={reccomned} tripType={tripType} key={uuidv4()} data={ticketData} />,
       "trains" : <TrainTicket reccomned={reccomned} tripType={tripType} key={uuidv4()} data={ticketData} />,

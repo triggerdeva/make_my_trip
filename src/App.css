@@ -359,3 +359,9 @@
 .LoginSignUp .form-container input[type="submit"]:hover{
   scale:1.05;
 }
+.print_button{
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: transparent;
+}
