@@ -1,43 +1,56 @@
-import React, {useEffect, useState, useRef} from 'react'
+import React, {useEffect,useContext, useState, useRef} from 'react'
 import {useParams, useLocation} from "react-router-dom";
 import airplane from "../assets/airplane.png";
+import hotelImage from "../assets/5-stars.png";
+import trainImage from "../assets/rail.png";
 import city from "../assets/city.png";
 import barcode from "../assets/barcode.jpeg"
+import { context } from '../App';
 import ReactToPrint from 'react-to-print';
 const HotelTicketPreview = ({data}) => {
+    const {currentUser} = useContext(context);
     const ticket = useRef(null);
     console.log("is hotesl ticket preview running");
-    const downloadTicket = () => {
-
-    }
+    const {
+        city,
+        hotel_name,
+        check_in,
+        check_out,
+        room_type,
+        price_per_night,
+        guests,
+        rating
+    } = data;
+    console.log(data);
     return (
         <>
             <div className="planeTicket_preview_wrapper">
             <div ref={ticket} className='planeTicket_preview'>
-                <div className="planeTicket_preview_img">
+                <div className="planeTicket_preview_img hotel_img">
                     <p>{data.from}</p>
-                    <img className="airplane_icon" src={airplane} alt="" />
+                    <img className="airplane_icon" src={hotelImage} alt="" />
                     <p>{data.to}</p>
                 </div>
                 <div className="details">
                     <div className="detail">
-                        <p className='planeTicket_preview_text_primary'>Airline</p>
-                        <p className='planeTicket_preview_text_secondary'>{data.airlineName}</p>
+                        <p className='planeTicket_preview_text_primary'>Hotel</p>
+                        <p className='planeTicket_preview_text_secondary'>{hotel_name}</p>
                     </div>
                     <div className="detail">
-                        <p className='planeTicket_preview_text_primary'>Passenger</p>
-                        <p className='planeTicket_preview_text_secondary'>Michelle doe</p>
+                        <p className='planeTicket_preview_text_primary'>Guest name</p>
+                        <p className='planeTicket_preview_text_secondary'>{currentUser.email.substring(0, currentUser.email.indexOf('@')) ||"Michelle doe"}</p>
                     </div>
                     <div className="detail">
-                        <p className='planeTicket_preview_text_primary'>Flight</p>
-                        <p className='planeTicket_preview_text_secondary'>NY341</p>
+                        <p className='planeTicket_preview_text_primary'>Room Type</p>
+                        <p className='planeTicket_preview_text_secondary'>{room_type}</p>
                     </div>
                     <div className="detail">
-                        <p className='planeTicket_preview_text_primary'>SEAT</p>
-                        <p className='planeTicket_preview_text_secondary'>14A</p>
+                        <p className='planeTicket_preview_text_primary'>City</p>
+                        <p className='planeTicket_preview_text_secondary'>{city}</p>
                     </div>
                     <div className="detail">
-                        <p className='planeTicket_preview_text_primary'>Jun-28-2017 AT 08:30AM</p>
+                        <p className='planeTicket_preview_text_primary'>CheckIn</p>
+                        <p className='planeTicket_preview_text_secondary'>{check_in} to {check_out}</p>
                     </div>
                     <div className="detail">
                         <img className='barcode_image' src={barcode} alt="" />
@@ -48,15 +61,15 @@ const HotelTicketPreview = ({data}) => {
                 </div>
             </div>
             </div>
-            <button onClick={downloadTicket} className='downloadTicket'>Download pass</button>
+            <ReactToPrint className="print_button"
+                trigger={() => <button style={{backgroundColor: "transparent"}} className="print_button">Print this out!</button>}
+                content={() => ticket.current}
+            />
         </>
     )
 }
 const PlaneTicketPreview = ({data}) => {
     const ticket = useRef(null);
-    const downloadTicket = () => {
-
-    }
     return (
         <>
             <div className="planeTicket_preview_wrapper">
@@ -104,9 +117,7 @@ const PlaneTicketPreview = ({data}) => {
 }
 const TrainTicketPreview = ({data}) => {
     const ticket = useRef(null);
-    const downloadTicket = () => {
-
-    }
+    
     console.log("is the train ticket preview running")
     return (
         <>
@@ -146,7 +157,10 @@ const TrainTicketPreview = ({data}) => {
                 </div>
             </div>
             </div>
-            <button onClick={downloadTicket} className='downloadTicket'>Download pass</button>
+            <ReactToPrint className="print_button"
+                trigger={() => <button style={{backgroundColor: "transparent"}} className="print_button">Print this out!</button>}
+                content={() => ticket.current}
+            />
         </>
     )
 }

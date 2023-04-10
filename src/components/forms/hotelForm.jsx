@@ -14,7 +14,7 @@ const hotelForm = ({options,optionLabel,type}) => {
       event.preventDefault();
       setFormData({
           city : cityInputRef.current.value,
-          checkIn : cityInputRef.current.value,
+          checkIn : checkInInputRef.current.value,
           checkOut : checkOutInputRef.current.value,
           guest : guestInputRef.current.value,
           roomType : roomTypeInputRef.current.value,
