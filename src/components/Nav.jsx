@@ -17,7 +17,7 @@ const Nav = () => {
   }
   return (
     <div className='navbar'>
-        <img src={logo} id="logo" />
+        <img onClick={() => navigate("/")} src={logo} id="logo" />
         <ul className='nav-items'>
             <button onClick={() => handleNavigate("/flights") }>Flights</button>
             <button onClick={() => handleNavigate("/hotels") }>Stays</button>

@@ -241,6 +241,9 @@
 .planeTicket_preview_img.hotel_img{
   background-image: url("https://nitravelnews.com/wp-content/uploads/2020/06/bz15-oyo-uae-910x610.jpg?v=311681999");
 }
+.planeTicket_preview_img.train{
+  background-image: url("https://i.pinimg.com/originals/cd/7c/b2/cd7cb25ce005237a25294d3f5a0e8f7e.jpg");
+}
 .airplane_icon{
   width: 100px;
   filter: invert();

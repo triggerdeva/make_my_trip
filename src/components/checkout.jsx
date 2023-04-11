@@ -1,5 +1,5 @@
 import React, {useEffect,useContext, useState, useRef} from 'react'
-import {useParams, useLocation} from "react-router-dom";
+import {useParams, useLocation,useNavigate} from "react-router-dom";
 import airplane from "../assets/airplane.png";
 import hotelImage from "../assets/5-stars.png";
 import trainImage from "../assets/rail.png";
@@ -69,6 +69,7 @@ const HotelTicketPreview = ({data}) => {
     )
 }
 const PlaneTicketPreview = ({data}) => {
+    const {currentUser} = useContext(context);
     const ticket = useRef(null);
     return (
         <>
@@ -86,7 +87,7 @@ const PlaneTicketPreview = ({data}) => {
                     </div>
                     <div className="detail">
                         <p className='planeTicket_preview_text_primary'>Passenger</p>
-                        <p className='planeTicket_preview_text_secondary'>Michelle doe</p>
+                        <p className='planeTicket_preview_text_secondary'>{currentUser.email.substring(0, currentUser.email.indexOf('@')) ||"Michelle doe"}</p>
                     </div>
                     <div className="detail">
                         <p className='planeTicket_preview_text_primary'>Flight</p>
@@ -116,37 +117,51 @@ const PlaneTicketPreview = ({data}) => {
     )
 }
 const TrainTicketPreview = ({data}) => {
+    console.log("this is train ticket preview")
+    const {currentUser} = useContext(context);
     const ticket = useRef(null);
-    
+    const {
+        from,
+        to,
+        departure: {
+            departureTime,
+            departureDate
+        },
+        duration,
+        kilometers,
+        price,
+        train_number
+    } = data;
     console.log("is the train ticket preview running")
     return (
         <>
             <div className="planeTicket_preview_wrapper">
             <div ref={ticket} className='planeTicket_preview'>
-                <div className="planeTicket_preview_img">
-                    <p>{data.from}</p>
-                    <img className="airplane_icon" src={airplane} alt="" />
-                    <p>{data.to}</p>
+                <div className="planeTicket_preview_img train">
+                    <p>{from}</p>
+                    <img className="airplane_icon" src={trainImage} alt="" />
+                    <p>{to}</p>
                 </div>
                 <div className="details">
                     <div className="detail">
-                        <p className='planeTicket_preview_text_primary'>Airline</p>
-                        <p className='planeTicket_preview_text_secondary'>{data.airlineName}</p>
+                        <p className='planeTicket_preview_text_primary'>Rail</p>
+                        <p className='planeTicket_preview_text_secondary'>Indian Railway</p>
                     </div>
                     <div className="detail">
                         <p className='planeTicket_preview_text_primary'>Passenger</p>
-                        <p className='planeTicket_preview_text_secondary'>Michelle doe</p>
+                        <p className='planeTicket_preview_text_secondary'>{currentUser.email.substring(0, currentUser.email.indexOf('@')) ||"Michelle doe"}</p>
                     </div>
                     <div className="detail">
-                        <p className='planeTicket_preview_text_primary'>Flight</p>
-                        <p className='planeTicket_preview_text_secondary'>NY341</p>
+                        <p className='planeTicket_preview_text_primary'>Train no.</p>
+                        <p className='planeTicket_preview_text_secondary'>{train_number}</p>
                     </div>
                     <div className="detail">
                         <p className='planeTicket_preview_text_primary'>SEAT</p>
                         <p className='planeTicket_preview_text_secondary'>14A</p>
                     </div>
                     <div className="detail">
-                        <p className='planeTicket_preview_text_primary'>Jun-28-2017 AT 08:30AM</p>
+                        <p className='planeTicket_preview_text_primary'>Departure</p>
+                        <p className='planeTicket_preview_text_secondary'>{departureDate} {departureTime}</p>
                     </div>
                     <div className="detail">
                         <img className='barcode_image' src={barcode} alt="" />
@@ -167,11 +182,13 @@ const TrainTicketPreview = ({data}) => {
 
 const Checkout = () => {
   const {ticketPrice} = useParams()
+  const navigate = useNavigate()
   const {state} = useLocation()
   const {data, type} = state;
   const [paid, setPaid] = useState(false);
   const [couponCode, setCouponCode] = useState(null);
   const couponInputRef = useRef(null);
+  const {currentUser} = useContext(context);
   const tickets = {
     "trains" : <TrainTicketPreview data={data} />,
     "hotels" : <HotelTicketPreview data={data} />,
@@ -179,6 +196,14 @@ const Checkout = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(currentUser);
+    if(!currentUser){
+        console.log("user is logged out")
+        navigate("/loginSignup");
+        return;
+    }else{
+        console.log("user is logged in")
+    }
     console.log("is being paid working? and the current type is", type)
     setPaid(true);
   }
