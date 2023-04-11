@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import Root from './components/Root';
 import Home from './components/home';
-import Checkout from "./components/Checkout";
+import Checkout from "./components/checkout";
 import {
   createBrowserRouter,
   RouterProvider,
