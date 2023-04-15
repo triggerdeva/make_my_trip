@@ -1,6 +1,7 @@
 import React, {useContext, useRef,useState} from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import {context} from "../../App";
+import dateCompare from '../utils/dateCompare';
 const flightForm = ({options,optionLabel,type}) => {
     const {formData, setFormData} = useContext(context);
     const [currentFlightType, setCurrentFlightType] = useState("oneWay")
@@ -9,7 +10,24 @@ const flightForm = ({options,optionLabel,type}) => {
     const departureInputRef = useRef();
     const returnInputRef = useRef();
     const flightTypeRef = useRef();
+    const handleDates = () => {
+        // console.log(departureInputRef.current.value,returnInputRef?.current?.value)
+        // if(departureInputRef.current.value && returnInputRef?.current?.value){
+        //     let result = dateCompare(departureInputRef.current.value,returnInputRef?.current?.value)
+        // }
+    }
     const handleSubmit = (event) => {
+        if(departureInputRef.current.value && returnInputRef?.current?.value){
+            let result = dateCompare(departureInputRef.current.value,returnInputRef?.current?.value)
+            if(!result){
+                alert("please fill the correct dates in departure and return input fields")
+                return 
+            }
+        }
+        if(fromInputRef.current.value === toInputRef.current.value){
+            alert("please fill the correct location name in 'From' and 'To' input fields")
+            return 
+        }
         console.log("is submit function running")
         event.preventDefault();
         setFormData({
@@ -45,6 +63,7 @@ const flightForm = ({options,optionLabel,type}) => {
                 }
             </select>
         </div>
+        {/* date status */}
         {/* From : text */}
         <div className="input-group">
             <label htmlFor="from">From</label>
@@ -58,13 +77,13 @@ const flightForm = ({options,optionLabel,type}) => {
         {/* Departure : data */}
         <div className="input-group">
             <label htmlFor="departureDate">Departure Date</label>
-            <input ref={departureInputRef} required className="trip-options-input" id="departureDate" type="date" />
+            <input onChange={handleDates} ref={departureInputRef} required className="trip-options-input" id="departureDate" type="date" />
         </div>
         {
             currentFlightType === "twoWay" && (
                 <div className="input-group">
                     <label htmlFor="returnDate">return Date</label>
-                    <input ref={returnInputRef} className="trip-options-input" id="returnDate" type="date" />
+                    <input onChange={handleDates} ref={returnInputRef} className="trip-options-input" id="returnDate" type="date" />
                 </div>
             )
         }

@@ -1,6 +1,7 @@
 import React, {useContext, useRef} from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import {context} from "../../App";
+import dateCompare from '../utils/dateCompare';
 
 const hotelForm = ({options,optionLabel,type}) => {
   const {formData, setFormData} = useContext(context);
@@ -11,6 +12,13 @@ const hotelForm = ({options,optionLabel,type}) => {
   const roomTypeInputRef = useRef();
   const handleSubmit = (event) => {
       console.log("is submit function running")
+      if(checkInInputRef.current.value && checkOutInputRef?.current?.value){
+            let result = dateCompare(checkInInputRef.current.value,checkOutInputRef?.current?.value)
+            if(!result){
+                alert("please fill the correct dates in check in and checkout input fields")
+                return 
+            }
+        }
       event.preventDefault();
       setFormData({
           city : cityInputRef.current.value,

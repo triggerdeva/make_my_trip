@@ -1,5 +1,5 @@
 import React, {useEffect,useContext, useState, useRef} from 'react'
-import {useParams, useLocation,useNavigate} from "react-router-dom";
+import {useParams, useLocation,useNavigate,useSearchParams} from "react-router-dom";
 import airplane from "../assets/airplane.png";
 import hotelImage from "../assets/5-stars.png";
 import trainImage from "../assets/rail.png";
@@ -182,6 +182,8 @@ const TrainTicketPreview = ({data}) => {
 
 const Checkout = () => {
   const {ticketPrice} = useParams()
+  const [searchParams, setSearchParams] = useSearchParams();
+  const guests = searchParams.get("guests");
   const navigate = useNavigate()
   const {state} = useLocation()
   const {data, type} = state;
@@ -189,6 +191,7 @@ const Checkout = () => {
   const [couponCode, setCouponCode] = useState(null);
   const couponInputRef = useRef(null);
   const {currentUser} = useContext(context);
+  const [completePrice,setCompletePrice] = useState(ticketPrice);
   const tickets = {
     "trains" : <TrainTicketPreview data={data} />,
     "hotels" : <HotelTicketPreview data={data} />,
@@ -208,12 +211,19 @@ const Checkout = () => {
     setPaid(true);
   }
   const couponAction = (event, action) => {
+  
     if(action === "apply"){
         setCouponCode(couponInputRef.current.value);
         return null;
     }
     setCouponCode(null);
   }
+  useEffect(()=> {
+    console.log("is this useEffect running")
+    if(guests){
+        setCompletePrice((Number(ticketPrice) * Number(guests)));
+    }
+  },[])
   return (
     <div className='checkout_page'>
         <div className="checkout_container">
@@ -221,7 +231,7 @@ const Checkout = () => {
                 <h2>Fare Summary</h2>
                 <div className="price_display_group">
                     <p>Base Fare</p>
-                    <p>{ticketPrice}</p>
+                    <p>{guests ? `${guests} * ${ticketPrice} = ${completePrice}` : completePrice}</p>
                 </div>
                 <div className="price_display_group">
                     <p>Fee & Surcharges</p>
@@ -229,7 +239,7 @@ const Checkout = () => {
                 </div>
                 <div className="price_display_group">
                     <p>Total</p>
-                    <p>{Number(ticketPrice) + 1000}</p>
+                    <p>{Number(completePrice) + 1000}</p>
                 </div>
                 <div className="price_display_group">
                     <p>apply coupon</p>
@@ -251,7 +261,7 @@ const Checkout = () => {
                 }
                 <div className="price_display_group">
                     <p>Total amout</p>        
-                    <div className="coupon_total">{couponCode === null ? Number(ticketPrice) + 1000 : Number(ticketPrice) + 1000 - 100}</div>
+                    <div className="coupon_total">{couponCode ?  Number(completePrice) + 1000 - 100 : Number(completePrice) + 1000}</div>
                 </div>
             </div>
             <form onSubmit={handleSubmit} className="payment_method">

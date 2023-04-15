@@ -1,6 +1,7 @@
 import React, {useContext, useRef} from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import {context} from "../../App";
+import dateCompare from '../utils/dateCompare';
 
 const trainForm = ({options,optionLabel,type}) => {
   const {formData, setFormData} = useContext(context);
@@ -10,6 +11,10 @@ const trainForm = ({options,optionLabel,type}) => {
   const classInputRef = useRef();
   const handleSubmit = (event) => {
       console.log("is submit function running")
+      if(fromInputRef.current.value === toInputRef.current.value){
+        alert("please fill the correct location name in 'From' and 'To' input fields")
+        return 
+    }
       event.preventDefault();
       setFormData({
           from : fromInputRef.current.value,
