@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useLocation } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import Root from './components/Root';
 import Home from './components/home';
 import Checkout from "./components/checkout";
@@ -38,77 +38,78 @@ const router = createBrowserRouter([
     element: <LoginSignUp/>,
   },
 ]);
-
 function App() {
-  const [data, setData] = useState(null);
-  const [formData, setFormData] = useState(null);
-  const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
-  const location = useLocation();
-
+  const [data,setData] = useState(null);
+  const [formData, setFormData] = useState(null)
+  const [users,setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null)
   useEffect(() => {
-    if (users.length !== 0) {
+    if(users.length !== 0){
       window.localStorage.setItem("users", JSON.stringify(users));
     }
-  }, [users]);
-
+  },[users])
   useEffect(() => {
-    if (currentUser) {
-      window.localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    if(currentUser){
+      window.localStorage.setItem("currentUser", JSON.stringify(currentUser))
     }
-  }, [currentUser]);
-
+  },[currentUser])
   useEffect(() => {
     let localCurrentUser = window.localStorage.getItem("currentUser");
-    if (localCurrentUser) {
-      setCurrentUser(JSON.parse(localCurrentUser));
+    if(localCurrentUser){
+      setCurrentUser(JSON.parse(localCurrentUser))
     }
 
     let localUsers = window.localStorage.getItem("users");
-    if (localUsers) {
-      setUsers(JSON.parse(localUsers));
+    if(localUsers){
+      setUsers(JSON.parse(localUsers))
     }
-  }, []);
+  },[])
 
   const urls = {
-    flights: "https://content.newtonschool.co/v1/pr/63b85b1209f0a79e89e17e3a/flights",
-    trains: "https://content.newtonschool.co/v1/pr/63b85e152cabb8fdea2673ee/trains",
-    hotels: "https://content.newtonschool.co/v1/pr/63b85bcf735f93791e09caf4/hotels",
-  };
-
+    flights : "https://content.newtonschool.co/v1/pr/63b85b1209f0a79e89e17e3a/flights",
+    trains : "https://content.newtonschool.co/v1/pr/63b85e152cabb8fdea2673ee/trains",
+    hotels : "https://content.newtonschool.co/v1/pr/63b85bcf735f93791e09caf4/hotels",
+  }
   const fetchData = async (url) => {
     const query = await fetch(url);
     return query.json();
-  };
-
+  }
   useEffect(() => {
-    console.log("is fetch data running why?", data);
-    if (formData === null) return;
+    console.log("is fetch data running why?", data)
+    if(formData === null) return;
     fetchData(urls[formData.type])
-      .then((data) => {
+      .then(data => {
         const newData = getObjOfType(formData);
         // setData(data);
-        setData([newData, ...data]);
-      })
-      .catch((error) => console.error("some error"));
-  }, [formData]);
-
+        setData([newData,...data]);
+      }).catch(error => console.error("some error"));
+  },[formData])
   return (
-    <context.Provider
-      value={{
-        data,
-        setData,
-        formData,
-        setFormData,
-        setUsers,
-        users,
-        currentUser,
-        setCurrentUser,
-      }}
-    >
+    <context.Provider value={{data, setData,formData, setFormData,setUsers,users,currentUser, setCurrentUser}}>
       <RouterProvider router={router} />
     </context.Provider>
-  );
+  )
 }
 
-export default App;
+export default App
+
+/* 
+  trains locaitons 
+  delhi 
+  mumbai 
+  chennai
+  kolkata
+  ============
+  hotel names
+  Bhshan Hotels
+  Roseate House
+  Ginger
+  Lemon Tree
+  Hotel Snow View Manali
+  ============
+  airline loacations
+  delhi 
+  mumbai 
+  chennai
+  kolkata
+*/
