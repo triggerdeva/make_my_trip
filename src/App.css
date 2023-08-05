@@ -31,6 +31,43 @@
 .nav-items > *:hover{
   scale: 1.07;
 }
+
+#flight {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+#stays{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+#train {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+#bus {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+#cab {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+#chaterflt {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
 /**********
   * tripOptions *
   **********/
