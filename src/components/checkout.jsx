@@ -10,7 +10,7 @@ import ReactToPrint from 'react-to-print';
 const HotelTicketPreview = ({data}) => {
     const {currentUser} = useContext(context);
     const ticket = useRef(null);
-    console.log("is hotesl ticket preview running");
+    console.log("is hotels ticket preview running");
     const {
         city,
         hotel_name,

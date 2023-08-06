@@ -2,6 +2,8 @@ import React, {useContext, useRef,useState} from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import {context} from "../../App";
 import dateCompare from '../utils/dateCompare';
+import './FlightForm.css'
+
 const flightForm = ({options,optionLabel,type}) => {
     const {formData, setFormData} = useContext(context);
     const [currentFlightType, setCurrentFlightType] = useState("oneWay")

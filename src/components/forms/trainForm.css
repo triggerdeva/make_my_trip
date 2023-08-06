@@ -1,0 +1,128 @@
+/* trainForm CSS */
+.trip-options {
+    /* Add your form container styles here */
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .input-group {
+    /* Add your input group styles here */
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    /* Add your label styles here */
+    font-weight: bold;
+  }
+  
+  .trip-options-input {
+    /* Your regular input and select styles here */
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .trip-options-input[type="date"] {
+    /* Adjust date input appearance for different browsers */
+    appearance: none;
+  }
+  
+  .trip-options-input[type="date"]::-webkit-inner-spin-button,
+  .trip-options-input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  .trip-options-input[type="submit"] {
+    /* Your submit button styles here */
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+  }
+  
+  .trip-options-input[type="submit"]:hover {
+    /* Add a hover effect for the submit button */
+    background-color: #0056b3;
+  }
+  
+  /* Additional styles for dropdown arrow in select element */
+  select::-ms-expand {
+    display: none;
+  }
+  select.triangle {
+    background: transparent;
+    border: none;
+    outline: none;
+    appearance: none;
+    padding-right: 25px; /* Add space for the arrow */
+  }
+  select.triangle:after {
+    /* Add a custom dropdown arrow */
+    content: '\25BC';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  /* Styling for the form labels */
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Additional styles for the form container */
+  .trip-options {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style for the error message */
+  .error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Add a subtle animation for input fields on focus */
+  .trip-options-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Style for the dropdown options */
+  select option {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Additional styles for the form header */
+  .trip-options h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+  }
+  
+  /* Center the submit button */
+  .input-group:last-child {
+    text-align: center;
+  }
+  
+  /* Add some margin to the submit button */
+  .input-group:last-child .trip-options-input[type="submit"] {
+    margin-top: 10px;
+  }
+  

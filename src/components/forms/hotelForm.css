@@ -1,0 +1,15 @@
+/* hotelForm hover animation CSS */
+.trip-options-input {
+    /* Your regular input styles here */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .trip-options-input:hover {
+    /* Add the hover effect here */
+    border-color: #007bff; /* Change the color to your desired hover effect */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box-shadow on hover */
+  }
+  

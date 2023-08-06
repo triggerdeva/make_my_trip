@@ -1,0 +1,48 @@
+.offers {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .flight-offers,
+  .hotel-offers {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .flight-offers:hover,
+  .hotel-offers:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .offers h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .offers p {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  /* Background Animation */
+  @keyframes backgroundAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .offers {
+    background: linear-gradient(-45deg, #b3d4fc, #ff85e0, #ffef8f);
+    background-size: 600% 600%;
+    animation: backgroundAnimation 10s ease infinite;
+  }

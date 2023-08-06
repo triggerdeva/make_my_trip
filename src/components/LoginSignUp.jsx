@@ -1,6 +1,8 @@
 import React, {useState,useContext} from 'react';
 import {context} from "../App";  
 import { useNavigate } from 'react-router-dom';
+import './LoginSignUp.css'
+
 const LoginSignUp = () => {
   const [showLogin, setShowLogin] = useState(true);
   return (
@@ -11,8 +13,8 @@ const LoginSignUp = () => {
             }
         </div>
     </div>
-  )
-}
+  );
+};
 
 function LoginForm({setShowLogin}) {
     const navigate = useNavigate();
@@ -57,7 +59,7 @@ function LoginForm({setShowLogin}) {
                 <input value={formData.password} onChange={(e) => setFormData(inputs => ({...inputs,password: e.target.value }))} placeholder="password" type="password" name="password" id="password" />
                 <input type="submit" name="submit" value="Login"/>
             </form>
-            <p>Don't have a accout ? <span className="changeAuthForm" onClick={() => setShowLogin(false)}> SIGN UP </span> here</p>
+            <p>Don't have a account? {' '} <span className="changeAuthForm" onClick={() => setShowLogin(false)}> SIGN UP </span>{' '} here</p>
         </>
     );
 }
@@ -90,7 +92,7 @@ function SignUpForm({setShowLogin}) {
                 <input value={formData.password} onChange={(e) => setFormData(inputs => ({...inputs,password: e.target.value }))} placeholder="password" type="password" name="password" id="password" />
                 <input type="submit" name="submit" value="Register"/>
             </form>
-            <p>Already have a accout ? <span className="changeAuthForm" onClick={() => setShowLogin(true)}> Login </span> here</p>
+            <p>Already have a account ? <span className="changeAuthForm" onClick={() => setShowLogin(true)}> Login </span> here</p>
         </>
 
     );

@@ -1,3 +1,14 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  transition: box-shadow 0.3s ease;
+}
+
+body:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 20px;
+}
 /**********
  * Navbar *
  **********/
@@ -19,6 +30,8 @@
   display: flex;
   gap: 15px;
 }
+
+
 .nav-items > *{
   padding: 5px 10px;
   background-color: ghostwhite;
@@ -30,6 +43,59 @@
 }
 .nav-items > *:hover{
   scale: 1.07;
+}
+
+.nav-item-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.nav-item-menu1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.nav-item-menu2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.nav-item-menu3 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.nav-item-menu4 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.nav-item-menu5 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 #flight {

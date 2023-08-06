@@ -3,6 +3,7 @@ import { Outlet, useNavigate  } from 'react-router-dom';
 import TripOptions from "./TripOptions";
 import Home from './home';
 import Nav from "./Nav";
+import Footer from './footer';
 const Root = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -11,7 +12,8 @@ const Root = () => {
   return (
     <div className='root'>
         <Nav/>
-        <Outlet/>
+        <Outlet/> 
+        <Footer />
     </div>
   )
 }
