@@ -12,36 +12,35 @@ body:hover {
 /**********
  * Navbar *
  **********/
-.navbar{
+.navbar {
   height: 60px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   display: flex;
   justify-content: space-between;
-  padding : 0 10px;
+  padding: 0 10px;
   align-items: center;
 }
-#logo{
+#logo {
   width: 150px;
   height: 100%;
   object-fit: cover;
-  
 }
-.nav-items{
+.nav-items {
   display: flex;
   gap: 15px;
 }
 
-
-.nav-items > *{
+.nav-items > * {
   padding: 5px 10px;
   background-color: ghostwhite;
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  transition: .35 scale ease;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  transition: 0.35 scale ease;
   cursor: pointer;
   user-select: none;
 }
-.nav-items > *:hover{
+.nav-items > *:hover {
   scale: 1.07;
 }
 
@@ -104,7 +103,7 @@ body:hover {
   margin-right: 5px;
 }
 
-#stays{
+#stays {
   width: 20px;
   height: 20px;
   margin-right: 5px;
@@ -137,50 +136,58 @@ body:hover {
 /**********
   * tripOptions *
   **********/
-.trip-options{
+.trip-options {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.1rem;
+  margin-top: 2rem;
 }
-.trip-options-input{
-  padding: 5px 5px
-}
-.input-group{
-  flex : 0 1 30%;
-  margin: 0px auto;
+/* .trip-options-input {
+  padding: 5px 5px;
+} */
+.input-group {
+  flex: 0 1 30%;
+  /* margin: 0px auto;
   justify-content: space-between;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-top: 10px;
+  margin-top: 10px; */
 }
-.input-group:first-child{
-  flex : 1 1 100%;
-  margin: 10px 20px;
-  align-items: center;
+.input-group:first-child {
+  flex: 1 1 100%;
+  /* margin: 10px 20px; */
+  /* align-items: center; */
 }
-.input-group:first-child > *{
-  width: 150px;
+.input-group:first-child > * {
+  /* width: 150px; */
 }
-.input-group:last-child{
-  flex : 1 1 100%;
+.input-group:last-child {
+  flex: 1 1 100%;
   position: relative;
   isolation: isolate;
 }
 
-#submit-trip-options{
+#submit-trip-options {
   display: block;
   width: max-content;
   margin-inline: auto;
   padding: 10px 80px;
   border-radius: 20px;
 }
-.input-group:last-child::before{
+
+#submit-trip-options:hover,
+#submit-trip-options:active {
+  background-color: rgb(209, 199, 199);
+  color: blue;
+}
+.input-group:last-child::before {
   content: "";
   display: block;
   position: absolute;
   bottom: 0px;
   top: 0px;
-  bottom : 0px;
+  bottom: 0px;
   margin: auto 0px;
   width: 100%;
   height: 2px;
@@ -191,63 +198,89 @@ body:hover {
 /**********
   * Tickets container *
   **********/
-  .tickets-container{
-    padding-left: 20px;
-  }
+.tickets-container {
+  /* padding-left: 20px; */
+}
 
 /**********
   * Tickets card *
   **********/
-.ticket_card{
+.ticket_card {
   width: 85%;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   padding: 20px 30px;
   border-radius: 20px;
-  background-color: 3px solid whitesmoke;
-  gap: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin-bottom: 20px;
-}
-.ticket_card > * {
-  flex: 1 1 auto;
-}
-.bookTicketBtn{
-  text-decoration: none;
-  flex: 1 1 100%;
-}
-.bookTicketBtn button {
-  display: block;
-  width: max-content;
-  padding: 10px 25px;
-  background-color: transparent;
-  margin: 0 auto;
-  border-radius: 8px;
-  background-color: rgb(80, 237, 80);
-  color: white;
+  margin-bottom: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-column-gap: 6rem; */
+  /* justify-content: center;
+  align-content: center; */
 }
 
-.ticket_card.reccomneded{
-  box-shadow: 0px -1px 25px 2px rgba(37,232,104,0.76);
-  -webkit-box-shadow: 0px -1px 25px 2px rgba(37,232,104,0.76);
-  -moz-box-shadow: 0px -1px 25px 2px rgba(37,232,104,0.76);
+.ticket_card .label-of-data p {
+  text-align: left;
+  padding: 0 0 0 1rem;
+  line-height: 0.5rem;
 }
-.ticket_card_info_group > *{
-  text-align: center;
+
+.label-subtitle__font {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.ticket_card .label-of-data {
+  margin-top: 2rem;
+}
+.ticket_card > * {
+  /* flex: 1 1 auto; */
+}
+.bookTicketBtn {
+  /* text-decoration: none;
+  flex: 1 1 100%; */
+  grid-column: 1 / span 3;
+  justify-self: center;
+}
+.bookTicketBtn button {
+  /* display: block; */
+  border: none;
+  padding: 10px 25px;
+  width: 12rem;
+  background-color: transparent;
+  font-size: 1.3rem;
+  border-radius: 2rem;
+  background-color: rgb(112, 103, 88);
+  color: white;
+  position: relative;
+  top: 2.5rem;
+}
+
+.bookTicketBtn button:hover,
+.bookTicketBtn:active {
+  background-color: wheat;
+  color: rgb(112, 103, 88);
+}
+
+.ticket_card.reccomneded {
+  /* box-shadow: 0px -1px 25px 2px rgba(37, 232, 104, 0.76);
+  -webkit-box-shadow: 0px -1px 25px 2px rgba(37, 232, 104, 0.76);
+  -moz-box-shadow: 0px -1px 25px 2px rgba(37, 232, 104, 0.76); */
+}
+.ticket_card_info_group > * {
+  /* text-align: center;
   background-color: aquamarine;
-  flex : 1 1 auto;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   background-color: azure;
-  align-items: center;
+  align-items: center; */
 }
 
 /**********
   * Login / Signup page *
   **********/
-.checkout_container{
+.checkout_container {
   display: flex;
   margin: 20px auto;
   width: 90%;
@@ -255,7 +288,7 @@ body:hover {
 /* .checkout_container p{
   text-align: right;
 } */
-.price_display_group{
+.price_display_group {
   /* background-color: red; */
   display: flex;
   justify-content: space-between;
@@ -269,15 +302,15 @@ body:hover {
   margin: 5px 0px;
   padding: 10px 0px;
 }
-.price_display{
-  flex : 1 1 50%;
+.price_display {
+  flex: 1 1 50%;
   padding: 5px 15px;
   margin: 20px;
   border: 2px solid silver;
   /* background-color: yellow; */
 }
-.payment_method{
-  flex : 1 1 50%;
+.payment_method {
+  flex: 1 1 50%;
   padding: 5px 15px;
   display: flex;
   margin: 20px;
@@ -287,44 +320,43 @@ body:hover {
   /* background-color: green; */
 }
 
-.payment_method > input[type="text"]{
+.payment_method > input[type="text"] {
   margin: 10px 20px;
   height: 35px;
   padding: 5px 10px;
 }
-.payment_method > h2{
+.payment_method > h2 {
   margin: 10px 20px;
 }
-.payment_method button{
+.payment_method button {
   width: max-content;
   padding: 10px 20px;
   margin: 10px auto;
 }
-.price_display_group{
+.price_display_group {
   display: flex;
   justify-content: space-between;
 }
-.inp_grp input[type="text"]{
+.inp_grp input[type="text"] {
   width: 70px;
   height: 25px;
 }
-.inp_grp > button{
+.inp_grp > button {
   height: 25px;
   width: max-content;
 }
 /**********
   * planeTicket_preview *
   **********/
-.planeTicket_preview_wrapper{
+.planeTicket_preview_wrapper {
   padding: 50px 0px;
-
 }
-.planeTicket_preview{
+.planeTicket_preview {
   background-color: rgb(255, 255, 255);
   width: 500px;
   margin: 0px auto;
 }
-.planeTicket_preview_img{
+.planeTicket_preview_img {
   height: 200px;
   color: white;
   display: flex;
@@ -341,38 +373,38 @@ body:hover {
   position: relative;
   z-index: 1;
 }
-.planeTicket_preview_img.hotel_img{
+.planeTicket_preview_img.hotel_img {
   background-image: url("https://nitravelnews.com/wp-content/uploads/2020/06/bz15-oyo-uae-910x610.jpg?v=311681999");
 }
-.planeTicket_preview_img.train{
+.planeTicket_preview_img.train {
   background-image: url("https://i.pinimg.com/originals/cd/7c/b2/cd7cb25ce005237a25294d3f5a0e8f7e.jpg");
 }
-.airplane_icon{
+.airplane_icon {
   width: 100px;
   filter: invert();
 }
-.planeTicket_preview_img > *{
+.planeTicket_preview_img > * {
   position: relative;
   z-index: 10;
 }
-.barcode_image{
+.barcode_image {
   width: 60%;
   display: block;
   margin: 0 auto;
 }
-.planeTicket_preview_img::after{
+.planeTicket_preview_img::after {
   content: "";
   inset: 0;
   background-color: rgba(0, 0, 0, 0.14);
   position: absolute;
   z-index: -10;
 }
-.disclamer p{
+.disclamer p {
   width: 90%;
   margin: 0 auto;
   padding: 15px 0px;
 }
-.details{
+.details {
   position: relative;
   border-bottom: dotted 3px rgb(88, 87, 87);
   display: flex;
@@ -383,11 +415,11 @@ body:hover {
   /* justify-content: center; */
   padding: 10px;
 }
-.detail{
+.detail {
   /* background-color: red; */
   padding: 0px 20px;
 }
-.planeTicket_preview_text_primary{
+.planeTicket_preview_text_primary {
   /* background-color: red; */
   margin: 0px;
   margin-top: 10px;
@@ -395,18 +427,19 @@ body:hover {
   color: silver;
   letter-spacing: 1px;
 }
-.planeTicket_preview_wrapper{
+.planeTicket_preview_wrapper {
   background-color: rgb(247, 185, 70);
 }
 
-.planeTicket_preview_text_secondary{
+.planeTicket_preview_text_secondary {
   font-size: 25px;
   color: black;
   margin: 0px;
   margin-top: 10px;
   letter-spacing: 1px;
 }
-.details::before, .details::after{
+.details::before,
+.details::after {
   position: absolute;
   content: "";
   height: 20px;
@@ -415,19 +448,18 @@ body:hover {
   border-radius: 50%;
   bottom: 0px;
 }
-.details::before{
+.details::before {
   left: 0px;
   transform: translateY(50%) translateX(-50%);
 }
-.details::after{
+.details::after {
   right: 0px;
   transform: translateY(50%) translateX(50%);
-
 }
 /**********
   * Login / Signup page *
   **********/
-.changeAuthForm{
+.changeAuthForm {
   text-decoration-style: dotted;
   text-decoration: underline;
   text-decoration-color: rgb(51, 152, 224);
@@ -436,39 +468,38 @@ body:hover {
   font-size: 1.05rem;
   font-weight: 600;
 }
-.LoginSignUp{
+.LoginSignUp {
   /* background-color: red; */
   display: flex;
   height: 100dvh;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
 }
 
-.LoginSignUp .form-container{
+.LoginSignUp .form-container {
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 10px 30px;
-  
 }
-.LoginSignUp .form-container input{
-  display:block;
+.LoginSignUp .form-container input {
+  display: block;
   width: 100%;
   height: 35px;
   padding: 0px 10px;
 }
-.LoginSignUp .form-container input ~ input{
+.LoginSignUp .form-container input ~ input {
   margin-top: 20px;
 }
-.LoginSignUp .form-container input[type="submit"]{
+.LoginSignUp .form-container input[type="submit"] {
   text-align: center;
   background-color: aliceblue;
-  cursor:pointer;
-  transition: .3s ease scale; 
+  cursor: pointer;
+  transition: 0.3s ease scale;
 }
-.LoginSignUp .form-container input[type="submit"]:hover{
-  scale:1.05;
+.LoginSignUp .form-container input[type="submit"]:hover {
+  scale: 1.05;
 }
-.print_button{
+.print_button {
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
