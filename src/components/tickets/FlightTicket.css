@@ -1,0 +1,138 @@
+
+.ticket_card {
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .recommended .ticket_card {
+    border-color: #FF5722; 
+  }
+  
+  /* Ticket card information groups */
+  .ticket_card_info_group {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .ticket_card_info_group p {
+    margin: 5px 0;
+  }
+  
+  /* Font styling for ticket information */
+  .FlightTicket_from_location,
+  .FlightTicket_to_location,
+  .FlightTicket_airlineName {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1a202c;
+  }
+  
+  .FlightTicket_departureTime,
+  .FlightTicket_returnTime,
+  .FlightTicket_returnDate,
+  .FlightTicket_duration,
+  .FlightTicket_price,
+  .FlightTicket_departureDate,
+  .FlightTicket_departure {
+    font-size: 16px;
+    color: #4a5568;
+  }
+  
+  /* Styling for the book ticket button */
+  .bookTicketBtn {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .bookTicketBtn button {
+    font-size: 16px;
+    padding: 12px 24px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .bookTicketBtn button:hover {
+    background-color: #ff4b00;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .ticket_card {
+      padding: 10px; /* Reduce padding on smaller screens */
+    }
+  
+    .FlightTicket_from_location,
+    .FlightTicket_to_location,
+    .FlightTicket_airlineName {
+      font-size: 16px; /* Decrease font size for better readability on smaller screens */
+    }
+  
+    .FlightTicket_departureTime,
+    .FlightTicket_returnTime,
+    .FlightTicket_returnDate,
+    .FlightTicket_duration,
+    .FlightTicket_price,
+    .FlightTicket_departureDate,
+    .FlightTicket_departure {
+      font-size: 14px; /* Decrease font size for better readability on smaller screens */
+    }
+  
+    .ticket_card_info_group p {
+      margin: 3px 0; /* Reduce margin for better spacing on smaller screens */
+    }
+  }
+  
+  /* Carousel Styling */
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .carousel-wrapper {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .carousel-item {
+    min-width: 100%; /* Adjust to your preferred item width */
+    flex-shrink: 0;
+    margin-right: 15px; /* Adjust the spacing between items */
+  }
+  
+  /* Optional carousel navigation arrows */
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .carousel-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .carousel-arrow-left {
+    left: 10px;
+  }
+  
+  .carousel-arrow-right {
+    right: 10px;
+  }
+  

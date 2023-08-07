@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+import './FlightTicket.css'
+
 const FlightTicket = ({data, tripType, reccomned}) => {
     const {
         from,
