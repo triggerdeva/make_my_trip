@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -140,6 +141,7 @@ body:hover {
 .trip-options{
   display: flex;
   flex-wrap: wrap;
+  
 }
 .trip-options-input{
   padding: 5px 5px

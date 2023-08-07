@@ -49,6 +49,7 @@ const hotelForm = ({options,optionLabel,type}) => {
             </select>
         </div>
         {/* From : text */}
+        <div className="row-group">
         <div className="input-group">
             <label htmlFor="city">City</label>
             <input ref={cityInputRef} required className="trip-options-input" id="city" type="text" placeholder='destination..' />
@@ -71,6 +72,7 @@ const hotelForm = ({options,optionLabel,type}) => {
         {/* Search : submit */}
         <div className="input-group">
             <input id='submit-trip-options' type="submit" value="Search" />
+        </div>
         </div>
     </form>
   )

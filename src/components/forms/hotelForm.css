@@ -1,15 +1,51 @@
-/* hotelForm hover animation CSS */
+/* hotelForm.css */
+
+.trip-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 300px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
 .trip-options-input {
-    /* Your regular input styles here */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
-  }
-  
-  .trip-options-input:hover {
-    /* Add the hover effect here */
-    border-color: #007bff; /* Change the color to your desired hover effect */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box-shadow on hover */
-  }
-  
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.row-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#submit-trip-options {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#submit-trip-options:hover {
+  background-color: #0056b3;
+}

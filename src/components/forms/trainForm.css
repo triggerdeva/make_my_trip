@@ -1,7 +1,7 @@
 /* trainForm CSS */
 .trip-options {
     /* Add your form container styles here */
-    max-width: 400px;
+    /* max-width: 400px; */
     margin: 0 auto;
     font-family: Arial, sans-serif;
   }
@@ -19,7 +19,7 @@
   .trip-options-input {
     /* Your regular input and select styles here */
     display: block;
-    width: 100%;
+    /* width: 100%; */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;

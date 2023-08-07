@@ -64,31 +64,34 @@ const flightForm = ({options,optionLabel,type}) => {
                     })
                 }
             </select>
+
         </div>
         {/* date status */}
         {/* From : text */}
+        <div className="row-group">
         <div className="input-group">
-            <label htmlFor="from">From</label>
-            <input ref={fromInputRef} required className="trip-options-input" id="from" type="text" placeholder='From destination..' />
+                <label htmlFor="from">From</label>
+                <input ref={fromInputRef} required className="trip-options-input" id="from" type="text" placeholder='From destination..' />
+            </div>
+            {/* To : text */}
+            <div className="input-group">
+                <label htmlFor="to">To</label>
+                <input ref={toInputRef} required className="trip-options-input" id="to" type="text" placeholder='To destination..' />
+            </div>
+            {/* Departure : data */}
+            <div className="input-group">
+                <label htmlFor="departureDate">Departure Date</label>
+                <input onChange={handleDates} ref={departureInputRef} required className="trip-options-input" id="departureDate" type="date" />
+            </div>
+            {
+                currentFlightType === "twoWay" && (
+                    <div className="input-group">
+                        <label htmlFor="returnDate">return Date</label>
+                        <input onChange={handleDates} ref={returnInputRef} className="trip-options-input" id="returnDate" type="date" />
+                    </div>
+                )
+            }
         </div>
-        {/* To : text */}
-        <div className="input-group">
-            <label htmlFor="to">To</label>
-            <input ref={toInputRef} required className="trip-options-input" id="to" type="text" placeholder='To destination..' />
-        </div>
-        {/* Departure : data */}
-        <div className="input-group">
-            <label htmlFor="departureDate">Departure Date</label>
-            <input onChange={handleDates} ref={departureInputRef} required className="trip-options-input" id="departureDate" type="date" />
-        </div>
-        {
-            currentFlightType === "twoWay" && (
-                <div className="input-group">
-                    <label htmlFor="returnDate">return Date</label>
-                    <input onChange={handleDates} ref={returnInputRef} className="trip-options-input" id="returnDate" type="date" />
-                </div>
-            )
-        }
         {/* Search : submit */}
         <div className="input-group">
             <input id='submit-trip-options' type="submit" value="Search" />
