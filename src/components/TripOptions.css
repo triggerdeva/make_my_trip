@@ -1,0 +1,53 @@
+/****
+  * tripOptions *
+  ****/
+  .trip-options{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .trip-options-input{
+    padding: 5px 5px
+  }
+  .input-group{
+    flex : 0 1 30%;
+    margin: 0px auto;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .input-group:first-child{
+    flex : 1 1 100%;
+    margin: 1px 1px;
+    align-items: center;
+  }
+  .input-group:first-child > *{
+    width: 150px;
+  }
+  .input-group:last-child{
+    flex : 1 1 100%;
+    position: relative;
+    isolation: isolate;
+  }
+  
+  #submit-trip-options{
+    display: flex;
+    width: max-content;
+    margin-inline: auto;
+    padding: 10px 80px;
+    border-radius: border-box;
+  }
+  .input-group:last-child::before{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    bottom : 0px;
+    margin: auto 0px;
+    width: 100%;
+    height: 2px;
+    background-color: gray;
+    z-index: -1;
+  }

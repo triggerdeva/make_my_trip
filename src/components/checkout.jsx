@@ -7,6 +7,7 @@ import city from "../assets/city.png";
 import barcode from "../assets/barcode.jpeg"
 import { context } from '../App';
 import ReactToPrint from 'react-to-print';
+import './checkout.css'
 const HotelTicketPreview = ({data}) => {
     const {currentUser} = useContext(context);
     const ticket = useRef(null);

@@ -4,6 +4,7 @@ import {context} from "../App";
 import FlightForm from "./forms/flightForm";
 import HotelForm from "./forms/hotelForm";
 import TrainForm from "./forms/trainForm";
+import './TripOptions.css'
 const TripOptions = ({options,optionLabel,type}) => {
   const tripeType = {
     "flights" : <FlightForm options={options} optionLabel={optionLabel} type={type} />,

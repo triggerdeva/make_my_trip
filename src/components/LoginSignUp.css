@@ -1,69 +1,230 @@
-/* LoginSignUp.css */
-
-.LoginSignUp {
+/****
+  * Login / Signup page *
+  ****/
+  .checkout_container{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin: 20px auto;
+    width: 90%;
   }
-  
-  .form-container {
-    max-width: 400px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  h2 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  form {
+  /* .checkout_container p{
+    text-align: right;
+  } */
+  .price_display_group{
+    /* background-color: red; */
     display: flex;
+    justify-content: space-between;
+    border-top: 2px solid slategray;
+  }
+  .price_display_group p {
+    /* background-color: yellow; */
+    margin: 0px;
+  }
+  .price_display_group {
+    margin: 5px 0px;
+    padding: 10px 0px;
+  }
+  .price_display{
+    flex : 1 1 50%;
+    padding: 5px 15px;
+    margin: 20px;
+    border: 2px solid silver;
+    /* background-color: yellow; */
+  }
+  .payment_method{
+    flex : 1 1 50%;
+    padding: 5px 15px;
+    display: flex;
+    margin: 20px;
     flex-direction: column;
-    gap: 15px;
+    border: 2px solid silver;
+  
+    /* background-color: green; */
   }
   
-  input[type='email'],
-  input[type='password'] {
+  .payment_method > input[type="text"]{
+    margin: 10px 20px;
+    height: 35px;
+    padding: 5px 10px;
+  }
+  .payment_method > h2{
+    margin: 10px 20px;
+  }
+  .payment_method button{
+    width: max-content;
+    padding: 10px 20px;
+    margin: 10px auto;
+  }
+  .price_display_group{
+    display: flex;
+    justify-content: space-between;
+  }
+  .inp_grp input[type="text"]{
+    width: 70px;
+    height: 25px;
+  }
+  .inp_grp > button{
+    height: 25px;
+    width: max-content;
+  }
+  /****
+    * planeTicket_preview *
+    ****/
+  .planeTicket_preview_wrapper{
+    padding: 50px 0px;
+  
+  }
+  .planeTicket_preview{
+    background-color: rgb(255, 255, 255);
+    width: 500px;
+    margin: 0px auto;
+  }
+  .planeTicket_preview_img{
+    height: 200px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    font-size: 35px;
+    font-weight: 600;
+    filter: brightness(90%);
+    background-size: cover;
+    background-image: url("https://lp-cms-production.imgix.net/image_browser/Mumbai_nightlife_S.jpg?auto=format&fit=crop&q=40&sharp=10&vib=20&ixlib=react-8.6.4");
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    position: relative;
+    z-index: 1;
+  }
+  .planeTicket_preview_img.hotel_img{
+    background-image: url("https://nitravelnews.com/wp-content/uploads/2020/06/bz15-oyo-uae-910x610.jpg?v=311681999");
+  }
+  .planeTicket_preview_img.train{
+    background-image: url("https://i.pinimg.com/originals/cd/7c/b2/cd7cb25ce005237a25294d3f5a0e8f7e.jpg");
+  }
+  .airplane_icon{
+    width: 100px;
+    filter: invert();
+  }
+  .planeTicket_preview_img > *{
+    position: relative;
+    z-index: 10;
+  }
+  .barcode_image{
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+  }
+  .planeTicket_preview_img::after{
+    content: "";
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.14);
+    position: absolute;
+    z-index: -10;
+  }
+  .disclamer p{
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px 0px;
+  }
+  .details{
+    position: relative;
+    border-bottom: dotted 3px rgb(88, 87, 87);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* background-color: green; */
+    /* width: max-content; */
+    /* justify-content: center; */
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+  }
+  .detail{
+    /* background-color: red; */
+    padding: 0px 20px;
+  }
+  .planeTicket_preview_text_primary{
+    /* background-color: red; */
+    margin: 0px;
+    margin-top: 10px;
+    font-size: 25px;
+    color: silver;
+    letter-spacing: 1px;
+  }
+  .planeTicket_preview_wrapper{
+    background-color: rgb(247, 185, 70);
   }
   
-  input[type='submit'] {
-    background-color: #0070c9;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
+  .planeTicket_preview_text_secondary{
+    font-size: 25px;
+    color: black;
+    margin: 0px;
+    margin-top: 10px;
+    letter-spacing: 1px;
   }
-  
-  p {
-    text-align: center;
+  .details::before, .details::after{
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: rgb(247, 185, 70);
+    border-radius: 50%;
+    bottom: 0px;
   }
+  .details::before{
+    left: 0px;
+    transform: translateY(50%) translateX(-50%);
+  }
+  .details::after{
+    right: 0px;
+    transform: translateY(50%) translateX(50%);
   
-  .changeAuthForm {
-    color: #0070c9;
-    cursor: pointer;
+  }
+  /****
+    * Login / Signup page *
+    ****/
+  .changeAuthForm{
+    text-decoration-style: dotted;
     text-decoration: underline;
+    text-decoration-color: rgb(51, 152, 224);
+    color: rgb(51, 152, 224);
+    font-style: italic;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .LoginSignUp{
+    /* background-color: red; */
+    display: flex;
+    height: 100dvh;
+    justify-content: center; 
+    align-items: center;
   }
   
-  .loginSignupError {
-    color: red;
+  .LoginSignUp .form-container{
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px 30px;
+    
   }
-  
-  /* Hover Animations */
-  .changeAuthForm:hover {
-    color: #004d80;
+  .LoginSignUp .form-container input{
+    display:block;
+    width: 100%;
+    height: 35px;
+    padding: 0px 10px;
   }
-  
-  input[type='submit']:hover {
-    background-color: #005ea3;
+  .LoginSignUp .form-container input ~ input{
+    margin-top: 20px;
   }
-  
+  .LoginSignUp .form-container input[type="submit"]{
+    text-align: center;
+    background-color: aliceblue;
+    cursor:pointer;
+    transition: .3s ease scale; 
+  }
+  .LoginSignUp .form-container input[type="submit"]:hover{
+    scale:1.05;
+  }
+  .print_button{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: transparent;
+  }

@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet, useNavigate  } from 'react-router-dom';
 import TripOptions from "./TripOptions";
 import Tickets from "./Tickets";
+import './Home.css'
 const Home = ({tripType}) => {
   return (
     <div>

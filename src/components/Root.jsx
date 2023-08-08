@@ -4,6 +4,7 @@ import TripOptions from "./TripOptions";
 import Home from './home';
 import Nav from "./Nav";
 import Footer from './footer';
+import './Root.css'
 const Root = () => {
   const navigate = useNavigate();
   useEffect(() => {

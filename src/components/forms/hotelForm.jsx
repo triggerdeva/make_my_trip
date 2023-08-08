@@ -71,7 +71,7 @@ const hotelForm = ({options,optionLabel,type}) => {
         </div>
         {/* Search : submit */}
         <div className="input-group">
-            <input id='submit-trip-options' type="submit" value="Search" />
+            <input id='submit-trip-options' type="submit" value="Search"/>
         </div>
         </div>
     </form>
